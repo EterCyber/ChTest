@@ -128,6 +128,7 @@ def setup_engine(destination, worker_dir, sha, repo_url, concurrency):
     os.chdir(bin_dir)
 
     shutil.move('chameleon-tune'+ EXE_SUFFIX, destination)
+    subprocess.call(['chmod', '777', destination])
   except:
     raise Exception('Failed to setup engine for %s' % (sha))
   finally:
